@@ -3,6 +3,7 @@ CMPS 2200  Recitation 2
 """
 
 ### the only imports needed are here
+import math
 import tabulate
 import time
 ###
@@ -17,8 +18,7 @@ def simple_work_calc(n, a, b):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	return a * simple_work_calc(n//b, a, b) + n if n > 1 else 1
 
 def work_calc(n, a, b, f):
 	"""Compute the value of the recurrence $W(n) = aW(n/b) + f(n)
@@ -32,8 +32,7 @@ def work_calc(n, a, b, f):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	return a * work_calc(n//b, a, b, f) + f(n) if n > 1 else f(1)
 
 def span_calc(n, a, b, f):
 	"""Compute the span associated with the recurrence $W(n) = aW(n/b) + f(n)
@@ -100,5 +99,4 @@ def compare_span(span_fn1, span_fn2, sizes=[10, 20, 50, 100, 1000, 5000, 10000])
 			span_fn2
 			))
 	return result
-	
 
