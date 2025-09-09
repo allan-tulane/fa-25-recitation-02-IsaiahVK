@@ -46,8 +46,10 @@ def span_calc(n, a, b, f):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	if n > 1:
+		return span_calc(n // b, a, b, f) + f(n)
+	else:
+		return f(1)
 
 
 
